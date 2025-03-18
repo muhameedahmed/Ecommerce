@@ -1,0 +1,7 @@
+@import "flowbite/src/themes/default";
+@source "../node_modules/flowbite";
+@import "tailwindcss";
+.content:hover button{
+  opacity:1;
+  transform: translateY(-100%);
+}
