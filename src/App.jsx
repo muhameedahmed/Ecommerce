@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home/Home";
 import Register from "./components/register/Register";
@@ -21,8 +21,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Cartcontextprovider>
         <UsercontextProvider>
-          <HashRouter>
-            {/* Navbar & Footer are inside Layout */}
+          <Router>
+            {/* 👇 Wrap all routes inside Layout */}
             <Layout>
               <Routes>
                 <Route path="/" element={<Protectedroute><Home /></Protectedroute>} />
@@ -35,7 +35,7 @@ function App() {
                 <Route path="*" element={<Errorpage />} />
               </Routes>
             </Layout>
-          </HashRouter>
+          </Router>
           <Toaster />
         </UsercontextProvider>
       </Cartcontextprovider>
