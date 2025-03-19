@@ -10,7 +10,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
   
-  const [menuOpen, setMenuOpen] = useState(false);  //  State for  menu
+  const [menuOpen, setMenuOpen] = useState(false);  // Track mobile menu state
 
   function Logout() {
     Setusertoken(null);
@@ -21,7 +21,7 @@ export default function Navbar() {
     setMenuOpen(false);  // Close menu on logout
   }
 
-  //  Function to close the menu when a link is clicked
+  //  Close the menu when a link is clicked
   const handleLinkClick = () => {
     setMenuOpen(false);
   };
@@ -35,46 +35,59 @@ export default function Navbar() {
           <span className="self-center text-2xl font-semibold dark:text-white">R D E R</span>
         </NavLink>
 
-
+        {/* Mobile Menu Button */}
         <button
           type="button"
           className="inline-flex items-center p-2 w-10 h-10 text-gray-500 rounded-lg md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)} //  Toggle menu on click
+          onClick={() => setMenuOpen(!menuOpen)} // Toggle menu on click
         >
           <svg className="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
           </svg>
         </button>
 
-
+        {/* Navigation Links */}
         <div className={`${menuOpen ? "block" : "hidden"} w-full md:block md:w-auto`}>
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:bg-white">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8">
             {usertoken === null ? (
               <>
                 <li>
-                  <NavLink to="/Login" className="block py-2 px-3 text-gray-100 md:hover:text-blue-500" onClick={handleLinkClick}>Login</NavLink>
+                  <NavLink to="/Login" className={location.pathname === "/Login" ? "text-blue-700" : "block py-2 px-3 text-gray-100 md:hover:text-blue-500"} onClick={handleLinkClick}>
+                    Login
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/Register" className="block py-2 px-3 text-gray-100 md:hover:text-blue-500" onClick={handleLinkClick}>Register</NavLink>
+                  <NavLink to="/Register" className={location.pathname === "/Register" ? "text-blue-700" : "block py-2 px-3 text-gray-100 md:hover:text-blue-500"} onClick={handleLinkClick}>
+                    Register
+                  </NavLink>
                 </li>
               </>
             ) : (
               <>
                 <li>
-                  <NavLink to="/" className="block py-2 px-3 text-gray-100 md:hover:text-blue-500" onClick={handleLinkClick}>Home</NavLink>
+                  <NavLink to="/" className={location.pathname === "/" ? "text-blue-700" : "block py-2 px-3 text-gray-100 md:hover:text-blue-500"} onClick={handleLinkClick}>
+                    Home
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/allorders" className="block py-2 px-3 text-gray-100 md:hover:text-blue-500" onClick={handleLinkClick}>Orders</NavLink>
+                  <NavLink to="/allorders" className={location.pathname === "/allorders" ? "text-blue-700" : "block py-2 px-3 text-gray-100 md:hover:text-blue-500"} onClick={handleLinkClick}>
+                    Orders
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/Cart" className="block py-2 px-3 text-gray-100 md:hover:text-blue-500" onClick={handleLinkClick}>
-                    Cart <i className="fa-solid fa-cart-shopping relative">
-                      <span className="absolute left-4 bottom-1.5 text-xs bg-rose-800 hover:text-white rounded-2xl p-0.5">{cart?.numOfCartItems}</span>
+                  <NavLink to="/Cart" className={location.pathname === "/Cart" ? "text-blue-700" : "block py-2 px-3 text-gray-100 md:hover:text-blue-500"} onClick={handleLinkClick}>
+                    Cart 
+                    <i className="fa-solid fa-cart-shopping relative">
+                      <span className="absolute left-4 bottom-1.5 text-xs bg-rose-800 hover:text-white rounded-2xl p-0.5">
+                        {cart?.numOfCartItems}
+                      </span>
                     </i>
                   </NavLink>
                 </li>
                 <li>
-                  <span onClick={Logout} className="block py-2 px-3 text-gray-100 md:hover:text-blue-500 cursor-pointer">Logout</span>
+                  <span onClick={Logout} className="block py-2 px-3 text-gray-100 md:hover:text-blue-500 cursor-pointer">
+                    Logout
+                  </span>
                 </li>
               </>
             )}
