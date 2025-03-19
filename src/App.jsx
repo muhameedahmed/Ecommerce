@@ -23,20 +23,24 @@ import Orders from './components/Orders/Orders'
 
 function App() {
   let x=  new QueryClient();
- let Brouter= router.createBrowserRouter([
-    {path:'',element:<Layout/>,children:[
-        {index:true,element:<Protectedroute><Home/></Protectedroute>},
-        {path:'Productdetails/:id/:category',element:<Protectedroute><Productdetails/></Protectedroute>},
-        {path:'Cart',element:<Protectedroute><Cart/></Protectedroute>},
-        {path:'Checkout',element:<Protectedroute><Checkout/></Protectedroute>},
-        {path:'allorders',element:<Protectedroute><Orders/></Protectedroute>},
-        {path:'Register',element:<Register/>},
-        {path:'Login',element:<Login/>},
-        {path:'*',element:<Errorpage/>}
-
-      ]    
+  let Brouter = router.createBrowserRouter([
+    {
+        path: '',
+        element: <Layout />,
+        children: [
+            { index: true, element: <Protectedroute><Home /></Protectedroute> },
+            { path: 'Productdetails/:id/:category', element: <Protectedroute><Productdetails /></Protectedroute> },
+            { path: 'Cart', element: <Protectedroute><Cart /></Protectedroute> },
+            { path: 'Checkout', element: <Protectedroute><Checkout /></Protectedroute> },
+            { path: 'allorders', element: <Protectedroute><Orders /></Protectedroute> },
+            { path: 'Register', element: <Register /> },
+            { path: 'Login', element: <Login /> },
+            { path: '*', element: <Errorpage /> }
+        ]
     }
-  ])
+], {
+    basename: "/Ecommerce"  // <-- Add this
+});
   return (
     <>
     
