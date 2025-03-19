@@ -41,14 +41,15 @@ export default function Checkout() {
         setErrorMessage(null);
         try {
             //const baseUrl = `${window.location.origin}/Ecommerce#/allorders`;
+            console.log( window.location.origin);
             const baseUrl = new URL('/Ecommerce#/allorders', window.location.origin).href;
             const response = await Cartcheckout(cartid, body, baseUrl);
             
-            if (response?.data?.status === 'success') {
+          /*  if (response?.data?.status === 'success') {
                 window.location.href = response.data.session.url;
             } else {
                 throw new Error('Payment failed');
-            }
+            }*/
         } catch (error) {
             console.error('Error in Checkout:', error.response?.data || error.message);
             setErrorMessage(error.response?.data?.message || 'An error occurred during checkout.');
