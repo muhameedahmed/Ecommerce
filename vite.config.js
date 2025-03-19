@@ -7,11 +7,12 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(),tailwindcss()],
 })*/
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react()],
-  base: '/Ecommerce/', // 👈 Add this line (match your GitHub repo name)
-});
+  plugins: [react(), tailwindcss()],
+  base: "/Ecommerce/"  // ✅ Add this line
+})
 
