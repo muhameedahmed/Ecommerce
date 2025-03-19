@@ -42,8 +42,8 @@ export default function Checkout() {
         try {
             //const baseUrl = `${window.location.origin}/Ecommerce#/allorders`;
             console.log( window.location.origin);
-            const baseUrl = new URL('/Ecommerce#/allorders', window.location.origin).href;
-            const response = await Cartcheckout(cartid, body, baseUrl);
+            //const baseUrl = new URL('/Ecommerce#/allorders', window.location.origin).href;
+            //const response = await Cartcheckout(cartid, body, baseUrl);
             
           /*  if (response?.data?.status === 'success') {
                 window.location.href = response.data.session.url;
