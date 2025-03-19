@@ -41,6 +41,8 @@ export default function Checkout() {
         setErrorMessage(null);
          console.log( window.location.origin);
         const response = await Cartcheckout(cartid, body,  window.location.origin);
+
+         console.log( response);
         /*try {
             //const baseUrl = `${window.location.origin}/Ecommerce#/allorders`;
            
