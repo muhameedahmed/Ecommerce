@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://muahmeedahmed.github.io/",
+  "homepage": "https://muahmeedahmed.github.io/Ecommerce/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
