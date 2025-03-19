@@ -21,19 +21,20 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Cartcontextprovider>
         <UsercontextProvider>
-          <Router> {/* 👈 Using HashRouter instead of BrowserRouter */}
-            <Layout>
-              <Routes>
-                <Route path="/" element={<Protectedroute><Home /></Protectedroute>} />
-                <Route path="/Productdetails/:id/:category" element={<Protectedroute><Productdetails /></Protectedroute>} />
-                <Route path="/Cart" element={<Protectedroute><Cart /></Protectedroute>} />
-                <Route path="/Checkout" element={<Protectedroute><Checkout /></Protectedroute>} />
-                <Route path="/allorders" element={<Protectedroute><Orders /></Protectedroute>} />
-                <Route path="/Register" element={<Register />} />
-                <Route path="/Login" element={<Login />} />
+          <Router> {/* 👈 Using HashRouter for GitHub Pages */}
+            <Routes>
+              {/* Wrap all main routes inside Layout */}
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Protectedroute><Home /></Protectedroute>} />
+                <Route path="Productdetails/:id/:category" element={<Protectedroute><Productdetails /></Protectedroute>} />
+                <Route path="Cart" element={<Protectedroute><Cart /></Protectedroute>} />
+                <Route path="Checkout" element={<Protectedroute><Checkout /></Protectedroute>} />
+                <Route path="allorders" element={<Protectedroute><Orders /></Protectedroute>} />
+                <Route path="Register" element={<Register />} />
+                <Route path="Login" element={<Login />} />
                 <Route path="*" element={<Errorpage />} />
-              </Routes>
-            </Layout>
+              </Route>
+            </Routes>
           </Router>
           <Toaster />
         </UsercontextProvider>
