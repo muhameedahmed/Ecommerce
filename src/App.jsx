@@ -21,8 +21,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Cartcontextprovider>
         <UsercontextProvider>
-          <Router>
-            {/* 👇 Wrap all routes inside Layout */}
+          <Router> {/* 👈 Using HashRouter instead of BrowserRouter */}
             <Layout>
               <Routes>
                 <Route path="/" element={<Protectedroute><Home /></Protectedroute>} />
