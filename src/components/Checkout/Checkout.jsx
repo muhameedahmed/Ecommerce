@@ -40,7 +40,8 @@ export default function Checkout() {
         setLoading(true);
         setErrorMessage(null);
         try {
-            const response = await Cartcheckout(cartid, body, url);
+            const baseUrl = window.location.origin + "/Ecommerce";
+            const response = await Cartcheckout(cartid, body, baseUrl);
             if (response?.data?.status === 'success') {
                 window.location.href = response.data.session.url;
             } else {
