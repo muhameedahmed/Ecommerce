@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://muhameedahmed.github.io/Ecommerce/",  // ✅ Add this line
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
+    "predeploy": "npm run build",  // ✅ Add this line
+    "deploy": "gh-pages -d dist"   // ✅ Add this line
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -40,6 +43,7 @@
     "globals": "^15.15.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.0.12",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "gh-pages": "^5.0.0"  // ✅ Ensure gh-pages is installed
   }
 }
