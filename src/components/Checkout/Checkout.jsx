@@ -40,14 +40,10 @@ export default function Checkout() {
         setLoading(true);
         setErrorMessage(null);
          console.log( window.location.origin);
-        const response = await Cartcheckout(cartid, body,  window.location.origin);
-         console.log( response);
-        /*try {
-            //const baseUrl = `${window.location.origin}/Ecommerce#/allorders`;
-           
-            //const baseUrl = new URL('/Ecommerce#/allorders', window.location.origin).href;
-            //const response = await Cartcheckout(cartid, body, baseUrl);
-            
+         
+        try {
+            const encodedUrl = encodeURIComponent(window.location.origin + '/Ecommerce/#');
+            const response = await Cartcheckout(cartid, body,  encodedUrl);
             if (response?.data?.status === 'success') {
                 window.location.href = response.data.session.url;
             } else {
@@ -58,7 +54,7 @@ export default function Checkout() {
             setErrorMessage(error.response?.data?.message || 'An error occurred during checkout.');
         } finally {
             setLoading(false);
-        }*/
+        }
     }
     
 
