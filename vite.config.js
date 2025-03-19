@@ -13,6 +13,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/Ecommerce/"  // ✅ Add this line
+  base: "/"  // ✅ Add this line
 })
 
