@@ -40,7 +40,8 @@ export default function Checkout() {
         setLoading(true);
         setErrorMessage(null);
         try {
-            const baseUrl = `${window.location.origin}/Ecommerce/#`;
+            const baseUrl = `${window.location.origin}/Ecommerce/#/allorders/`;
+            console.log("Redirecting to:", baseUrl);
             const response = await Cartcheckout(cartid, body, baseUrl);
             
             if (response?.data?.status === 'success') {
