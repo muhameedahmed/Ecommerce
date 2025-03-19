@@ -36,12 +36,13 @@ export default function Checkout() {
     });
     
 
-    async function handleSubmit(cartid, body, url) {
+    async function handleSubmit(cartid, body) {
         setLoading(true);
         setErrorMessage(null);
         try {
-            const baseUrl = window.location.origin + "/Ecommerce/#/allorders";
+            const baseUrl = `${window.location.origin}/Ecommerce/allorders`;
             const response = await Cartcheckout(cartid, body, baseUrl);
+            
             if (response?.data?.status === 'success') {
                 window.location.href = response.data.session.url;
             } else {
@@ -54,6 +55,7 @@ export default function Checkout() {
             setLoading(false);
         }
     }
+    
 
     const formik = useFormik({
         initialValues: {
@@ -62,7 +64,7 @@ export default function Checkout() {
             city: '',
         },
         validationSchema,
-        onSubmit: () => handleSubmit(cartid, formik.values, window.location.origin),
+        onSubmit: () => handleSubmit(cartid, formik.values),
     });
     useEffect(() => {
         window.scrollTo(0, 0);
