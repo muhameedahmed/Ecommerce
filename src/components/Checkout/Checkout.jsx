@@ -61,7 +61,7 @@ export default function Checkout() {
             city: '',
         },
         validationSchema,
-        onSubmit: () => handleSubmit(cartid, formik.values, "http://localhost:5173"),
+        onSubmit: () => handleSubmit(cartid, formik.values, window.location.origin),
     });
     useEffect(() => {
         window.scrollTo(0, 0);
